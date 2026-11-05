@@ -186,3 +186,339 @@ body{font-family:var(--body);font-size:13px;letter-spacing:-.003em;background-co
 ::selection{background:linear-gradient(90deg,rgba(16,185,129,.45),rgba(139,92,246,.45));color:#fff}
 @media(max-width:760px){.page-heading h1{animation:none}.ambient i{filter:blur(70px);opacity:.3}.cursor-glow{display:none}.checkin-btn{animation:checkin-pulse 2.4s ease-in-out infinite}}
 @media(prefers-reduced-motion:reduce){.page-heading h1,.brand-mark,.checkin-btn,.heat-cell.heat-today,.toast{animation:none!important}}
+
+/* ==========================================================================
+   THEME TOGGLE + LIGHT MODE — integrated in the N8ny bot drawer
+   ========================================================================== */
+.drawer-actions{display:flex;align-items:center;gap:6px}
+.drawer-actions>button{border:0;background:none;color:#92a2b3;padding:3px}
+.theme-toggle{display:flex;align-items:center;gap:5px;border:1px solid #ffffff1d!important;background:#121c2a!important;color:#b6c2d0!important;border-radius:6px;padding:4px 9px!important;font:600 9px var(--mono)!important;letter-spacing:.4px;cursor:pointer;transition:border-color .2s,color .2s,transform .2s,box-shadow .2s}
+.theme-toggle:hover{border-color:#8b5cf6!important;color:#cbb8ff!important;transform:translateY(-1px);box-shadow:0 6px 16px -8px rgba(139,92,246,.8)}
+.theme-toggle span{display:grid;place-items:center}
+
+/* ---- Light palette ---------------------------------------------------- */
+html[data-theme=light]{color-scheme:light}
+html[data-theme=light] body{font-family:var(--body);font-size:13px;letter-spacing:-.003em;background-color:#eef2ec;background-image:radial-gradient(rgba(16,60,40,.06) 1px,transparent 1px),radial-gradient(ellipse at 63% -16%,#cfe8dc99 0,transparent 46%);background-size:24px 24px,auto;background-attachment:fixed;color:#1d2b23}
+html[data-theme=light] :root,body{--bg:#eef2ec;--panel:#ffffff;--panel2:#f6f9f6;--line:#dbe5db;--muted:#5f6f64}
+html[data-theme=light] .sidebar{background:#ffffffee;border-color:#e0e8e0}
+html[data-theme=light] .topbar{background:#ffffffdd;border-color:#e0e8e0}
+html[data-theme=light] .card,html[data-theme=light] .roadmap-list,html[data-theme=light] .phase-card{background:linear-gradient(145deg,#ffffffff,#f8fbf9ff);border-color:#e0e8e0;box-shadow:0 12px 30px -22px rgba(30,60,45,.28);backdrop-filter:blur(12px)}
+html[data-theme=light] .card:hover,html[data-theme=light] .phase-card:hover,html[data-theme=light] .project-card:hover{box-shadow:0 22px 50px -24px rgba(30,60,45,.35),0 0 0 1px rgba(16,185,129,.25)}
+html[data-theme=light] .card::before,html[data-theme=light] .phase-card::before{background:radial-gradient(300px circle at var(--mx,50%) var(--my,50%),rgba(16,185,129,.16),rgba(139,92,246,.1) 42%,transparent 70%)}
+html[data-theme=light] .nav-item.selected{background:#e9f4ec;border-color:#cfe3d6;color:#175c3e}
+html[data-theme=light] .nav-item.selected svg{color:#10b981}
+html[data-theme=light] .nav-item.selected{color:#175c3e}
+html[data-theme=light] .nav-pill{background:linear-gradient(115deg,#e9f4ec,#e4f1ea);border:1px solid #cfe3d6;box-shadow:0 6px 18px -10px rgba(16,185,129,.4)}
+html[data-theme=light] .nav-item:hover{color:#33453a}
+html[data-theme=light] .timer-display{color:#22322a;text-shadow:none}
+html[data-theme=light] .day-complete .day-number{background:#e7f4d9;color:#2e5c1e;border-color:#c8e2b0}
+html[data-theme=light] .day-complete .day-number:after{color:#2e5c1e;text-shadow:none}
+html[data-theme=light] .modal{background:#ffffff;border-color:#dfe7df;box-shadow:0 24px 70px -18px rgba(20,45,32,.35)}
+html[data-theme=light] .modal input,html[data-theme=light] .modal select{background:#f4f7f4;border-color:#d8e1d8;color:#1d2b23}
+html[data-theme=light] .modal>label{color:#47564c}
+html[data-theme=light] .day-notes,html[data-theme=light] .workflow-input,html[data-theme=light] .loom-field{background:#fbfdfb;border-color:#dfe7df;color:#22332a}
+html[data-theme=light] .vault-actions button{background:#eef3ef;border-color:#d8e1d8;color:#4a5a4e}
+html[data-theme=light] .vault-actions button:hover:not(:disabled){background:#f3efff;border-color:#8b5cf6;color:#5b21b6}
+html[data-theme=light] .tour-popover{background:linear-gradient(150deg,#fffffffa,#fbfdfffa);border-color:#e2e8e2;box-shadow:0 20px 70px rgba(20,45,32,.22),0 0 36px rgba(16,185,129,.12);color:#1d2b23}
+html[data-theme=light] .tour-popover h2{color:#22332a}
+html[data-theme=light] .tour-help{background:#ffffffee;color:#6d28d9;border-color:#e2e8e2}
+html[data-theme=light] .tour-count{color:#6d7d74}
+html[data-theme=light] .tour-progress{background:#e2e8e2}
+html[data-theme=light] .advisor h3{color:#22332a}
+html[data-theme=light] .deal-avatar{background:#eef5ea;border-color:#cfe0c8;color:#2e5c1e}
+html[data-theme=light] .nav-item{color:#5f6f64}
+html[data-theme=light] ::-webkit-scrollbar-track{background:#eef2ec}
+html[data-theme=light] ::-webkit-scrollbar-thumb{background:-webkit-gradient(linear,180deg,#c3cfc6,#a9b8ac)}
+html[data-theme=light] ::selection{background:rgba(16,185,129,.35);color:#12241b}
+html[data-theme=light] .ambient i{opacity:.18}
+html[data-theme=light] .cursor-glow{opacity:.35}
+html[data-theme=light] .scroll-progress{background:rgba(0,0,0,.06)}
+html[data-theme=light] .drawer-head{border-bottom-color:#e6ede6;background:linear-gradient(100deg,#f2f8f4,#f6f3fb)}
+html[data-theme=light] .drawer-avatar{background:#eef4f0;border-color:#7ee0d3aa}
+html[data-theme=light] .pet-reply{background:#f7faf7;border-top-color:#e6ede6;border-bottom-color:#e6ede6}
+html[data-theme=light] .n8ny-nudge,html[data-theme=light] .n8ny-drawer{background:#fffffffc;border-color:#e0e8e0;color:#22332a}
+html[data-theme=light] .nudge-overline,html[data-theme=light] .advisor-label{color:#5f6f64}
+html[data-theme=light] .drawer-head b{color:#22332a}
+html[data-theme=light] .drawer-head small{color:#6d7d74}
+html[data-theme=light] .prompt-list button{color:#47564c}
+html[data-theme=light] .prompt-list button:hover{background:rgba(139,92,246,.08);color:#5b21b6}
+html[data-theme=light] .drawer-footer{color:#6d7d74;border-top-color:#e6ede6}
+html[data-theme=light] .theme-toggle{background:#f1f4f1!important;border-color:#dbe5db!important;color:#47564c!important}
+html[data-theme=light] .modal-backdrop{background:rgba(240,246,240,.6)}
+html[data-theme=light] .rank-icon,html[data-theme=light] .phase-no{background:#efeaf8;border-color:#d6c9f0;color:#6d28d9}
+html[data-theme=light] .streak-card,html[data-theme=light] .side-settings{border-color:#e0e8e0}
+html[data-theme=light] .icon-btn{border-color:#dbe5db;color:#47564c}
+html[data-theme=light] .icon-btn:hover{background:#f1f4f1;border-color:#c8d4c8}
+html[data-theme=light] .empty-pipeline h3{color:#22332a}
+@media(prefers-reduced-motion:reduce){.theme-toggle span{animation:none}}
+
+/* ==========================================================================
+   LIGHT MODE COLOR REFRESH — contrast, chips, glows, gradients
+   ========================================================================== */
+html[data-theme=light] body{background-color:#f3f6f1;background-image:radial-gradient(rgba(16,60,40,.05) 1px,transparent 1px),radial-gradient(ellipse at 63% -16%,#d4eadb8c 0,transparent 46%),radial-gradient(ellipse at 50% 120%,#e7e0f58c 0,transparent 55%);background-size:24px 24px,auto,auto;background-attachment:fixed;color:#1d2b23}
+html[data-theme=light] .sidebar{background:#ffffffde;border-color:#e3eae3;backdrop-filter:blur(16px)}
+html[data-theme=light] .topbar{background:#ffffffcf;border-color:#e3eae3;backdrop-filter:blur(16px)}
+html[data-theme=light] .card,html[data-theme=light] .roadmap-list,html[data-theme=light] .phase-card{background:linear-gradient(150deg,#ffffff,#fbfdfb);border-color:#e2e9e1;box-shadow:0 1px 2px rgba(23,43,32,.05),0 14px 34px -22px rgba(23,43,32,.28)}
+html[data-theme=light] .card:hover,html[data-theme=light] .phase-card:hover,html[data-theme=light] .project-card:hover{border-color:#cfe0d4;box-shadow:0 1px 2px rgba(23,43,32,.06),0 22px 48px -24px rgba(23,43,32,.35),0 0 0 3px rgba(16,185,129,.08)}
+html[data-theme=light] .card::before,html[data-theme=light] .phase-card::before{background:radial-gradient(300px circle at var(--mx,50%) var(--my,50%),rgba(16,185,129,.1),rgba(139,92,246,.08) 42%,transparent 70%)}
+/* headings + gradient text that vanish on white */
+html[data-theme=light] .page-heading h1 em{background:linear-gradient(100deg,#0f9d69 0%,#7c3aed 55%,#ea580c 100%);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;filter:none;animation:gradient-pan 7s ease-in-out infinite}
+html[data-theme=light] .page-heading h1{filter:none}
+html[data-theme=light] .brand>b{background:linear-gradient(90deg,#22332a,#6d28d9 60%,#c2410c);-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;animation:gradient-pan 6s ease-in-out infinite}
+html[data-theme=light] .brand-mark{filter:drop-shadow(0 2px 6px rgba(16,185,129,.35))}
+/* sidebar + progress bits */
+html[data-theme=light] .side-rank strong{color:#22332a}
+html[data-theme=light] .side-rank small,html[data-theme=light] .side-settings,html[data-theme=light] .brand span small{color:#64756a}
+html[data-theme=light] .rank-track,html[data-theme=light] .progress-track,html[data-theme=light] .phase-line,html[data-theme=light] .rev-bar,html[data-theme=light] .stat-meter{background:#e3eae3}
+html[data-theme=light] .rank-track i,html[data-theme=light] .progress-track i,html[data-theme=light] .phase-line i,html[data-theme=light] .rev-bar i,html[data-theme=light] .stat-meter i{background:#10b981}
+html[data-theme=light] .roadmap-mini-track{background:#e3eae3}
+/* headline stats + timer */
+html[data-theme=light] .big-stat{color:#1d2b23;text-shadow:none}
+html[data-theme=light] .big-stat span{color:#6d7d74}
+html[data-theme=light] .timer-display{color:#22332a}
+html[data-theme=light] .timer-panel:has(.status-live) .timer-display{animation:timer-breathe-light 2.6s ease-in-out infinite}
+@keyframes timer-breathe-light{0%,100%{color:#22332a;text-shadow:none}50%{color:#0f7a4e;text-shadow:0 0 18px rgba(16,185,129,.35)}}
+/* dashboard rings + labels */
+html[data-theme=light] .circle-progress{background:conic-gradient(#10b981 var(--p),#dfe7df 0)}
+html[data-theme=light] .circle-progress:before{background:#ffffff}
+html[data-theme=light] .circle-progress strong{color:#1d2b23}
+html[data-theme=light] .circle-progress small{color:#5f6f64}
+html[data-theme=light] .circle-progress span{color:#6d7d74}
+html[data-theme=light] .circle-progress:after{border-color:rgba(16,185,129,.35)}
+html[data-theme=light] .focus-day{color:#3d7c46}
+html[data-theme=light] .focus-day span{color:#6d7d74}
+html[data-theme=light] .detail-xp{color:#3d7c46}
+html[data-theme=light] .detail-nav{border-top-color:#e6ece6}
+html[data-theme=light] .detail-nav button{color:#1d8a5b}
+html[data-theme=light] .detail-nav button:disabled{color:#a9b8ab}
+html[data-theme=light] .detail-nav span{color:#6d7d74}
+html[data-theme=light] .detail-label{color:#64756a}
+html[data-theme=light] .label-icon{background:#e4f6ec;color:#1d7a4a}
+html[data-theme=light] .label-icon-orange{background:#fdf0e7;color:#b5541f}
+html[data-theme=light] .label-icon-blue{background:#e7f3f8;color:#1a6d7c}
+html[data-theme=light] .label-icon-purple{background:#f2eefc;color:#6d28d9}
+html[data-theme=light] .phase-no{background:#efeaf8;border-color:#d6c9f0;color:#6d28d9}
+/* roadmap + lessons */
+html[data-theme=light] .roadmap-day:hover,html[data-theme=light] .roadmap-day.day-selected{background:#eaf3ec}
+html[data-theme=light] .roadmap-day:hover{box-shadow:0 10px 24px -16px rgba(16,185,129,.5)}
+html[data-theme=light] .day-number{border-color:#dbe5db;color:#7c8b80}
+html[data-theme=light] .day-xp{color:#6d7d74}
+/* heatmap */
+html[data-theme=light] .heat-cell{border-color:#e0e8e0;background:#e9efe8;color:#8a997e}
+html[data-theme=light] .heat-cell.heat-future{border-color:#e6ebe6;background:#f1f4ef;color:#aab8ab}
+html[data-theme=light] .heat-cell.heat-on{border-color:#238a55;background:#27915b;color:#eafff5;box-shadow:0 2px 8px -3px rgba(16,90,55,.45)}
+html[data-theme=light] .heat-cell.heat-on:hover{background:#1fb877;box-shadow:0 4px 14px -4px rgba(16,90,55,.55)}
+html[data-theme=light] .heat-cell:hover{border-color:#bdccbf;box-shadow:0 8px 18px -10px rgba(23,43,32,.35)}
+html[data-theme=light] .heat-cell.heat-today{border-color:#ff826d;box-shadow:0 0 0 1px rgba(255,109,90,.4)}
+/* lesson chip colors */
+html[data-theme=light] .day-complete .day-number{background:#e7f4d9;color:#2e5c1e;border-color:#c8e2b0}
+html[data-theme=light] .day-complete .day-number:after{color:#2e5c1e;text-shadow:none}
+/* pipeline + portfolio */
+html[data-theme=light] .pipeline-columns{border-top-color:#e6ece6;border-bottom-color:#e6ece6;color:#6d7d74}
+html[data-theme=light] .deal-row:hover{background:rgba(16,185,129,.06)}
+html[data-theme=light] .deal-row:hover .deal-avatar{box-shadow:0 0 12px rgba(16,185,129,.3)}
+html[data-theme=light] .project-status,html[data-theme=light] .deal-status{background:#f4f7f4;border-color:#dde5dd;color:#33453a}
+html[data-theme=light] .loom-field{background:#fbfdfb;border-color:#e0e8e0;color:#5f6f64}
+html[data-theme=light] .loom-field input{color:#22332a}
+html[data-theme=light] .loom-field>a{color:#1d8a5b}
+html[data-theme=light] .empty-pipeline{border-top-color:#e6ece6}
+html[data-theme=light] .empty-pipeline h3{color:#22332a}
+html[data-theme=light] .empty-pipeline p{color:#5f6f64}
+/* toast stays a dark green chip for punch */
+html[data-theme=light] .toast{background:#0f3d2e;border-color:#10b981;color:#b8f5dc;box-shadow:0 16px 40px -14px rgba(15,61,46,.55),0 0 0 1px rgba(16,185,129,.2)}
+html[data-theme=light] .toast svg{color:#5eead4}
+/* glowing buttons tuned for light */
+html[data-theme=light] .export-btn,html[data-theme=light] .checkin-btn,html[data-theme=light] .timer-primary,html[data-theme=light] .focus-cta,html[data-theme=light] .tour-next{box-shadow:0 6px 18px -8px rgba(224,90,60,.5),inset 0 1px 0 rgba(255,255,255,.3)}
+html[data-theme=light] .export-btn:hover,html[data-theme=light] .checkin-btn:hover,html[data-theme=light] .timer-primary:hover,html[data-theme=light] .focus-cta:hover,html[data-theme=light] .tour-next:hover{box-shadow:0 12px 26px -10px rgba(224,90,60,.65),inset 0 1px 0 rgba(255,255,255,.35)}
+html[data-theme=light] .checkin-btn{background:linear-gradient(135deg,#f2543f,#ff7a5c);animation:checkin-pulse-light 2.4s ease-in-out infinite}
+@keyframes checkin-pulse-light{0%,100%{box-shadow:0 6px 18px -8px rgba(224,90,60,.5)}50%{box-shadow:0 8px 26px -8px rgba(224,90,60,.75)}}
+html[data-theme=light] .timer-reset{background:#eef3ef;border-color:#dde5dd;color:#33453a}
+/* n8ny + tour surfaces */
+html[data-theme=light] .n8ny-name{color:#5f6f64;text-shadow:0 1px 6px rgba(255,255,255,.9)}
+html[data-theme=light] .nudge-overline{color:#6d28d9}
+html[data-theme=light] .nudge-progress{border-top-color:#eef2ee;color:#2f8a5e}
+html[data-theme=light] .nudge-danger .nudge-overline{color:#a16207}
+html[data-theme=light] .nudge-danger .nudge-progress{color:#a16207}
+html[data-theme=light] .nudge-danger{border-color:#d1a75f66}
+html[data-theme=light] .reply-label{color:#147a5e}
+html[data-theme=light] .drawer-head .theme-toggle{background:#ffffff!important;border-color:#dbe5db!important;color:#47564c!important}
+html[data-theme=light] .tour-skip,html[data-theme=light] .tour-prev{background:#f1f4f1;color:#47564c;border-color:#dbe5db}
+html[data-theme=light] .prompt-list button svg:last-child{color:#8a997e}
+/* art panels keep their dark gallery look but sit lighter */
+html[data-theme=light] .project-art{box-shadow:inset 0 0 0 1px rgba(255,255,255,.2),0 10px 26px -18px rgba(23,43,32,.5)}
+html[data-theme=light] .art-code{color:#ffffff90}
+
+/* ==========================================================================
+   LIGHT MODE FIX PASS — remove remaining dark islands / near-white text
+   ========================================================================== */
+html[data-theme=light]{color:#1d2b23;--bg:#f3f6f1;--panel:#ffffff;--panel2:#f6f9f6;--line:#dbe5db;--muted:#5f6f64}
+
+/* headings and labels that were still near-white */
+html[data-theme=light] .page-heading h1,
+html[data-theme=light] .focus-card h3,
+html[data-theme=light] .panel-heading h2,
+html[data-theme=light] .timer-head h2,
+html[data-theme=light] .section-title-row h2,
+html[data-theme=light] .phase-card h3,
+html[data-theme=light] .day-detail>h2,
+html[data-theme=light] .project-body h2,
+html[data-theme=light] .simulator-card h2,
+html[data-theme=light] .revenue-main-stat>strong,
+html[data-theme=light] .revenue-small-stat strong,
+html[data-theme=light] .modal-head h2{color:#1d2b23}
+html[data-theme=light] .crumb b,
+html[data-theme=light] .today-label,
+html[data-theme=light] .roadmap-phase-copy b,
+html[data-theme=light] .day-selected .day-title-small,
+html[data-theme=light] .deal-client b,
+html[data-theme=light] .deal-money,
+html[data-theme=light] .slider-row strong,
+html[data-theme=light] .sim-result strong,
+html[data-theme=light] .streak-head{color:#22332a}
+html[data-theme=light] .streak-head strong{color:#b45309}
+html[data-theme=light] .project-footer>span:first-child,
+html[data-theme=light] .status-ready-to-pitch,
+html[data-theme=light] .rev-right strong,
+html[data-theme=light] .sim-result>span.sim-success{color:#2e7d4f}
+html[data-theme=light] .progress-foot svg{color:#2e7d4f}
+html[data-theme=light] .rev-copy h2 span,
+html[data-theme=light] .rev-right button,
+html[data-theme=light] .sim-result>span,
+html[data-theme=light] .sim-equation,
+html[data-theme=light] .project-body>p,
+html[data-theme=light] .revenue-main-stat>span{color:#5f6f64}
+html[data-theme=light] .sim-spark{color:#8a7a1f}
+html[data-theme=light] .deal-closed-paid{color:#2e7d4f}
+html[data-theme=light] .deal-beta-deal{color:#9a5b12}
+html[data-theme=light] .status-building{color:#9a5b12}
+
+/* sidebar streak card + avatar */
+html[data-theme=light] .streak-card{background:#f8fbf7;border-color:#e3eae3}
+html[data-theme=light] .streak-dots i{background:#e3eae3;color:#6d7d74}
+html[data-theme=light] .streak-dots i.dot-active{background:#a9dc7c;color:#1d3a12}
+html[data-theme=light] .streak-dots i.dot-today{outline-color:#2e7d4f}
+html[data-theme=light] .streak-foot{border-top-color:#e6ece6;color:#64756a}
+html[data-theme=light] .avatar{background:#e7f4d9;color:#2e5c1e}
+
+/* topbar icon buttons */
+html[data-theme=light] .icon-btn{background:#f4f7f4;border-color:#dde5dd;color:#47564c}
+html[data-theme=light] .icon-btn svg{color:#5f6f64}
+html[data-theme=light] .icon-btn:hover{background:#eaf1ea;border-color:#cbd8cb}
+
+/* chips that were dark */
+html[data-theme=light] .learning-xp{background:#eef5ef;border-color:#dbe5db;color:#2e5c1e}
+html[data-theme=light] .roadmap-num{background:#e9f1e7;border-color:#cfe0c8;color:#2e5c1e}
+html[data-theme=light] .complete-toggle{background:#eef3ef;border-color:#dde5dd;color:#2e7d4f}
+html[data-theme=light] .complete-toggle.is-done{background:#e7f4d9;border-color:#c8e2b0;color:#2e5c1e}
+html[data-theme=light] .roadmap-day.day-complete .day-number{background:#e7f4d9;border-color:#c8e2b0;color:#2e5c1e}
+html[data-theme=light] .day-selected .day-number{background:#a8d979;border-color:#8fc45c;color:#182313}
+html[data-theme=light] .phase-card:nth-child(2) .phase-no,
+html[data-theme=light] .phase-card:nth-child(3) .phase-no{background:#f2eefc;border-color:#d6c9f0;color:#6d28d9}
+html[data-theme=light] .phase-card:nth-child(4) .phase-no{background:#e4f6ec;border-color:#bfe3cf;color:#1d7a4a}
+
+/* source + deliverable boxes */
+html[data-theme=light] .source-link{background:#f7faf7;border-color:#e0e8e0;color:#33453a}
+html[data-theme=light] .source-link svg{color:#2e7d4f}
+html[data-theme=light] .deliverable-box,
+html[data-theme=light] .advisor p.deliverable-copy{background:#fdf7ec;border-color:#ecd9b8;color:#5b4a2f}
+
+/* revenue icons + simulator */
+html[data-theme=light] .rev-icon{background:#f3f6d9;color:#6b7a1f}
+html[data-theme=light] .rev-stat-icon{background:#f3f6d9;color:#6b7a1f}
+html[data-theme=light] .rev-stat-green{background:#e4f6ec;color:#1d7a4a}
+html[data-theme=light] .rev-stat-orange{background:#fdf0e7;color:#b5541f}
+html[data-theme=light] .simulator-card{background:linear-gradient(160deg,#ffffff,#f7faf5);border-color:#e2e9e1}
+html[data-theme=light] .sim-result{background:#f6faf3;border-color:#dfe7d9}
+html[data-theme=light] .sim-divider{border-top-color:#e6ece6}
+html[data-theme=light] .sim-result small,
+html[data-theme=light] .slider-row label{color:#64756a}
+html[data-theme=light] .sim-result strong{color:#1d2b23}
+
+/* project art: pastel gallery instead of dark tiles */
+html[data-theme=light] .project-art{background:radial-gradient(ellipse at 50% 110%,#bfe8cf 0,#e8f4ec 47%,#f2f8f4 82%);color:#2e7d4f}
+html[data-theme=light] .project-art.art-1{background:radial-gradient(ellipse at 50% 110%,#e6e8bd 0,#f6f7ea 46%,#fbfbf5 83%);color:#6b7a1f}
+html[data-theme=light] .project-art.art-2{background:radial-gradient(ellipse at 50% 110%,#bfe3e8 0,#e9f4f5 46%,#f4fafb 83%);color:#1a6d7c}
+html[data-theme=light] .art-code{color:rgba(40,70,50,.4)}
+html[data-theme=light] .project-art .art-orbit{border-color:rgba(46,125,79,.25)}
+
+/* n8ny drawer text */
+html[data-theme=light] .n8ny-nudge,
+html[data-theme=light] .n8ny-drawer{color:#22332a}
+html[data-theme=light] .n8ny-nudge p,
+html[data-theme=light] .pet-reply p{color:#5f6f64}
+html[data-theme=light] .advisor a{color:#1d8a5b}
+html[data-theme=light] .n8ny-name i{color:#0e7f86}
+html[data-theme=light] .drawer-footer svg{color:#2e7d4f}
+
+/* remaining light-mode chips */
+html[data-theme=light] .soft-tag{background:#fdf0e7;border-color:#f0cdb8;color:#b5541f}
+html[data-theme=light] .mini-starts button{background:#f4f7f4;border-color:#dde5dd;color:#47564c}
+html[data-theme=light] .mini-starts button:hover{background:#eaf1ea;border-color:#cbd8cb;color:#22332a}
+
+/* light mode muted-text contrast pass */
+html[data-theme=light] :is(.page-heading p,.crumb,.eyebrow,.section-overline,.side-label,.rank-meta,.nav-count,.deal-client small,.day-title-small,.roadmap-phase-copy small,.heat-legend,.streak-foot,.field-caption,.project-footer>span:last-child,.nudge-close,.tour-count,.tour-popover p,.drawer-footer,.sim-equation,.project-body>p,.revenue-main-stat>span,.revenue-small-stat span,.slider-row label,.sim-result small,.timer-status,.empty-pipeline p){color:#5a6a5f}
+html[data-theme=light] .side-label{color:#55655a}
+html[data-theme=light] .rank-meta{color:#55655a}
+html[data-theme=light] .slider-value{color:#2e7d4f}
+html[data-theme=light] .header-streak{color:#c2410c}
+html[data-theme=light] .streak-head svg{color:#c2410c}
+html[data-theme=light] .brand-mark,html[data-theme=light] .brand-mark span{color:#0e9f72}
+html[data-theme=light] .eyebrow-dot{box-shadow:0 0 8px rgba(255,109,90,.5)}
+html[data-theme=light] .nav-item{color:#4f5f54}
+html[data-theme=light] .side-settings{color:#4f5f54}
+html[data-theme=light] .deal-client small{color:#5a6a5f}
+html[data-theme=light] .project-footer>span:last-child{color:#5a6a5f}
+html[data-theme=light] .timer-modes button,html[data-theme=light] .timer-presets button{color:#4f5f54}
+html[data-theme=light] .tour-skip,html[data-theme=light] .tour-prev{color:#47564c}
+html[data-theme=light] .nudge-close{color:#5a6a5f}
+
+/* light mode final contrast + flame tuning */
+@keyframes flame-flicker-light{from{transform:scale(1) rotate(-5deg);color:#b45309;filter:drop-shadow(0 0 4px rgba(194,65,12,.25))}to{transform:scale(1.12) rotate(5deg);color:#d97706;filter:drop-shadow(0 0 8px rgba(217,119,6,.3))}}
+html[data-theme=light] .header-streak{animation:flame-flicker-light 1.4s ease-in-out infinite alternate;color:#b45309}
+html[data-theme=light] .header-streak svg{color:#c2410c}
+html[data-theme=light] .header-streak.plasma{animation:none;color:#0e7490;filter:none}
+html[data-theme=light] .days-left,
+html[data-theme=light] .stat-caption,
+html[data-theme=light] .progress-foot,
+html[data-theme=light] .timer-phases,
+html[data-theme=light] .phase-count,
+html[data-theme=light] .phase-range,
+html[data-theme=light] .project-footer,
+html[data-theme=light] .focus-card p,
+html[data-theme=light] .revenue-small-stat small,
+html[data-theme=light] .revenue-small-stat span,
+html[data-theme=light] .revenue-main-stat>span,
+html[data-theme=light] .simulator-card p,
+html[data-theme=light] .rev-copy p{color:#5a6a5f}
+html[data-theme=light] .plain-icon{color:#5f6f64}
+html[data-theme=light] .text-link,
+html[data-theme=light] .view-all,
+html[data-theme=light] .rev-right button{color:#c2410c}
+html[data-theme=light] .heat-cell{color:#5f7358}
+html[data-theme=light] .detail-nav button:disabled{color:#7d8c80}
+
+/* light mode polish: flame icon + logo + disabled pager */
+html[data-theme=light] .streak-head>svg{animation:flame-flicker-light 1.4s ease-in-out infinite alternate;color:#c2410c}
+html[data-theme=light] .brand-mark,html[data-theme=light] .brand-mark span{color:#0b8a62}
+html[data-theme=light] .detail-nav button:disabled{color:#66766b}
+
+/* A brighter, more playful light palette with clear interaction cues. */
+html[data-theme=light] body{background:radial-gradient(ellipse at 90% 0%,rgba(255,187,132,.17),transparent 30%),radial-gradient(ellipse at 35% 0%,rgba(148,201,255,.18),transparent 35%),#f5f7fb}
+html[data-theme=light] .sidebar{background:linear-gradient(180deg,#fffdf9,#f5f8ff);border-right-color:#e5e8f0}
+html[data-theme=light] .topbar{background:rgba(255,255,255,.88);border-bottom-color:#e5e8f0}
+html[data-theme=light] .card,html[data-theme=light] .phase-card,html[data-theme=light] .project-card,html[data-theme=light] .focus-card,html[data-theme=light] .mastery-card,html[data-theme=light] .simulator-card{box-shadow:0 8px 24px -18px rgba(47,65,103,.3);transition:transform .24s cubic-bezier(.2,.8,.2,1),box-shadow .24s,border-color .24s}
+html[data-theme=light] .card:hover,html[data-theme=light] .phase-card:hover,html[data-theme=light] .mastery-card:hover{box-shadow:0 18px 34px -20px rgba(91,91,176,.34);border-color:#c9c8f0}
+html[data-theme=light] .nav-item.selected{background:linear-gradient(100deg,#e5f8eb,#e8f3ff);border-color:#d4e8dd;color:#176b52}
+html[data-theme=light] .nav-item.selected svg{color:#12a878}
+html[data-theme=light] .rank-track i,html[data-theme=light] .progress-track i,html[data-theme=light] .phase-line i,html[data-theme=light] .rev-bar i,html[data-theme=light] .stat-meter i{background:linear-gradient(90deg,#19bd85,#56b9ef 55%,#a786f5)}
+html[data-theme=light] .eyebrow-dot,html[data-theme=light] .live-dot,html[data-theme=light] .green-pulse{background:#ff866e;box-shadow:0 0 0 4px rgba(255,134,110,.12),0 0 12px rgba(255,134,110,.45)}
+html[data-theme=light] .icon-btn:hover,html[data-theme=light] .mini-starts button:hover{background:#f0edff;border-color:#d8cdfa;color:#684fc1}
+html[data-theme=light] .icon-btn:hover svg{color:#684fc1}
+html[data-theme=light] :is(button,a,[role=button],input,textarea,select):focus-visible{outline:3px solid #8b72e8;outline-offset:3px}
+html[data-theme=light] .heat-cell.heat-on{background:#55c99b;border-color:#40b783;color:#123d2c}
+html[data-theme=light] .heat-cell.heat-on:hover{background:#25b982;box-shadow:0 0 18px rgba(37,185,130,.32)}
+html[data-theme=light] .roadmap-day:hover{border-color:#b7a9ef;box-shadow:0 12px 28px -16px rgba(123,93,210,.45)}
+html[data-theme=light] .streak-card{background:linear-gradient(145deg,#fff8e8,#fff1e5);border-color:#f3ddbd}
+html[data-theme=light] .streak-dots i.dot-active{background:#ffbd67;color:#613a07}
+html[data-theme=light] .streak-dots i.dot-today{outline-color:#f28a44}
+@media(prefers-reduced-motion:reduce){html[data-theme=light] *,html[data-theme=light] *::before,html[data-theme=light] *::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
